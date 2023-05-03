@@ -1,0 +1,148 @@
+import { Text, View, Image } from "react-native";
+import { globalStyles } from "../../globalStyles";
+
+export default function FourCost({navigator}) {
+    const cards = [
+        "https://cards.scryfall.io/normal/front/d/6/d6a3672f-c0d3-4504-8886-e50cd30295be.jpg?1673305866", 
+        "https://cards.scryfall.io/normal/front/b/7/b7e90355-80ca-49db-914c-62b3a7bd4726.jpg?1631234731",
+        "https://cards.scryfall.io/normal/front/f/a/fa96b8dc-233a-4884-ab84-235cbc7df0b6.jpg?1624592210", 
+        "https://cards.scryfall.io/normal/front/0/b/0b649145-426f-4576-a71c-6ee5d3981243.jpg?1661583585",
+        "https://cards.scryfall.io/normal/front/7/6/761df6cd-0928-4167-8902-58fdb50181a0.jpg?1624589970", 
+        "https://cards.scryfall.io/normal/front/f/9/f9e79b59-94c8-4697-bf88-f0a0433170f5.jpg?1631051021",
+        "https://cards.scryfall.io/normal/front/c/8/c87ebffe-5907-427b-9f9b-7c36a12b4a03.jpg?1555040284", 
+        "https://cards.scryfall.io/normal/front/d/6/d6afeb07-ed44-4e15-99b6-436f8365326f.jpg?1598304141",
+        "https://cards.scryfall.io/normal/front/0/c/0c7ce363-3f57-49ed-b89a-f12bb5227ab4.jpg?1631586892", 
+        "https://cards.scryfall.io/normal/front/3/7/373a4e3e-6244-43e8-80ac-f5508db9ce57.jpg?1673148154",
+        "https://cards.scryfall.io/normal/front/5/5/552bb59c-085f-4caf-8430-ba6e2888ea6d.jpg?1682712499", 
+        "https://cards.scryfall.io/normal/front/9/c/9ca9530f-ecec-4f12-bc5a-9e211b97be70.jpg?1673648526",
+        "https://cards.scryfall.io/normal/front/e/3/e3de4804-d330-403a-9ab0-e8be78655618.jpg?1674141785", 
+        "https://cards.scryfall.io/normal/front/6/2/623c9804-42c4-4b69-bc39-f70d96929d07.jpg?1561944354",
+        "https://cards.scryfall.io/normal/front/7/b/7bf6baf2-d20b-467d-8929-abefcf7dfa99.jpg?1562820377", 
+        "https://cards.scryfall.io/normal/front/f/6/f675f509-4343-4568-96dd-265626cb6c2b.jpg?1604195095",
+        "https://cards.scryfall.io/normal/front/9/0/90fc94d9-b8af-4de8-a42d-ae508f8f1cd5.jpg?1682209488", 
+        "https://cards.scryfall.io/normal/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1572490491",
+        "https://cards.scryfall.io/normal/front/c/3/c3a5a175-e963-42cc-a0ba-d8914bb93c00.jpg?1673484831", 
+        "https://cards.scryfall.io/normal/front/7/1/714c3a1f-7b30-4ed8-8f38-6176758741fb.jpg?1608909400",
+        "https://cards.scryfall.io/normal/front/7/8/7887ba81-16b6-4cfd-b282-02200a1789a3.jpg?1682208470", 
+        "https://cards.scryfall.io/normal/front/8/6/8690cbcc-f8fd-41f7-9e28-e61c12b04014.jpg?1665611812",
+        "https://cards.scryfall.io/normal/front/3/8/38326f48-548c-4b18-9ad2-0b7c23385deb.jpg?1674141638", 
+        "https://cards.scryfall.io/normal/front/4/c/4cedbfd3-907f-4042-98c1-6fe3fb8cbc01.jpg?1674141617",
+        "https://cards.scryfall.io/normal/front/c/8/c83ed3e0-82d0-4410-a6ca-b0f923eadf83.jpg?1581479572", 
+        "https://cards.scryfall.io/normal/front/0/d/0d82f171-b1f6-4e80-996a-c579a1be252c.jpg?1592710863",
+        "https://cards.scryfall.io/normal/front/d/b/db827ee7-6f2e-4e10-aac0-120fc2b69fbd.jpg?1562743987", 
+        "https://cards.scryfall.io/normal/front/7/b/7b89a074-9aca-4f7f-953a-b401199be1cb.jpg?1599709387",
+        "https://cards.scryfall.io/normal/front/b/c/bc8b3a09-75e8-428c-91f7-8fac62fadc98.jpg?1636224715", 
+        "https://cards.scryfall.io/normal/front/c/0/c0516453-3e6a-4b7f-8df6-72a6e207169a.jpg?1568003965",
+        "https://cards.scryfall.io/normal/front/f/2/f22c07e2-91d2-4edb-bd2b-cca6d4cefcc9.jpg?1626097922", 
+        "https://cards.scryfall.io/normal/front/9/b/9b4e628f-5fc5-4c17-a07d-448d361d7e7c.jpg?1594735076",
+        "https://cards.scryfall.io/normal/front/e/3/e31b30a7-13e8-408e-a758-60e6e9290808.jpg?1576381360", 
+        "https://cards.scryfall.io/normal/front/b/0/b098ad05-3e30-4a73-b327-da1cdc22786d.jpg?1641601741",
+        "https://cards.scryfall.io/normal/front/1/6/1677d49e-3d63-45bd-9849-01b1bdd95ad8.jpg?1656159779", 
+        "https://cards.scryfall.io/normal/front/8/9/89420882-5833-46f0-9a3f-3c8e694074df.jpg?1641602590",
+        "https://cards.scryfall.io/normal/front/c/0/c0801fd0-1f6c-45ea-94aa-80cf0c017f57.jpg?1673484148", 
+        "https://cards.scryfall.io/normal/front/3/6/36d4574a-3266-4497-b145-fb25820d8a7f.jpg?1562301680",
+        "https://cards.scryfall.io/normal/front/5/5/558b6db8-4a54-4d25-98e7-e27efc1cab38.jpg?1674142201", 
+        "https://cards.scryfall.io/normal/front/9/8/986a7ea8-a015-4dd8-9938-36b38ccd3980.jpg?1591321705",
+        "https://cards.scryfall.io/normal/front/d/6/d67be074-cdd4-41d9-ac89-0a0456c4e4b2.jpg?1674057568", 
+        "https://cards.scryfall.io/normal/front/d/d/dded98c3-17cb-4a43-a209-289ceb11df39.jpg?1600717849",
+        "https://cards.scryfall.io/normal/front/c/7/c7a401b8-29fb-46ef-a663-427f66724d5c.jpg?1674135465", 
+        "https://cards.scryfall.io/normal/front/3/7/374b5d57-fd20-4062-9ec2-24ac557d9dde.jpg?1604195020",
+        "https://cards.scryfall.io/normal/front/d/b/db9a0b21-2e9d-4e76-ac97-d11c299d8bd6.jpg?1673484903", 
+        "https://cards.scryfall.io/normal/front/4/f/4f77d23d-6257-4dae-b585-29f45f13f2e2.jpg?1599708079",
+        "https://cards.scryfall.io/normal/front/9/6/9685e2a0-5573-41bc-a914-f40c3011459b.jpg?1631051543", 
+        "https://cards.scryfall.io/normal/front/7/7/77e19416-aa6c-46f1-b247-a94da5d1a13a.jpg?1673147429",
+        "https://cards.scryfall.io/normal/front/2/3/235e5999-e8e5-4093-adff-9d47aec70d10.jpg?1581478942", 
+        "https://cards.scryfall.io/normal/front/7/3/73b64c17-8a52-4d9d-a28b-7e0e945be059.jpg?1654567533",
+        "https://cards.scryfall.io/normal/front/6/7/675d6729-23da-4f0b-b222-fe54fe24dd90.jpg?1631302927", 
+        "https://cards.scryfall.io/normal/front/a/2/a2d5c9f2-8f58-40ac-a01c-f4ac4ab4d7f0.jpg?1673305096",
+        "https://cards.scryfall.io/normal/front/9/e/9e7fb3c0-5159-4d1f-8490-ce4c9a60f567.jpg?1567181307", 
+        "https://cards.scryfall.io/normal/front/c/d/cd9fec9d-23c8-4d35-97c1-9499527198fb.jpg?1601078209",
+        "https://cards.scryfall.io/normal/front/a/9/a90ec9d7-9784-481d-91d9-3dd1f666f7d1.jpg?1674142123", 
+        "https://cards.scryfall.io/normal/front/a/b/ab25853c-29d3-4244-88db-813300a262a5.jpg?1591320303",
+        "https://cards.scryfall.io/normal/front/b/c/bcfaa19e-995e-447d-a0a2-46e5d117d5ec.jpg?1584831914", 
+        "https://cards.scryfall.io/normal/front/6/3/63461076-a13d-488d-bd82-ceac441341c8.jpg?1634349861",
+        "https://cards.scryfall.io/normal/front/5/b/5b474f84-9bef-422a-8fc5-489a10aaf1ee.jpg?1682208561", 
+        "https://cards.scryfall.io/normal/front/5/9/59f7f84c-d0a8-4204-a68e-93075f2a96b0.jpg?1625193335",
+        "https://cards.scryfall.io/normal/front/4/4/44bdbed8-5d21-4bf5-8a32-9623b1139c85.jpg?1576381396", 
+        "https://cards.scryfall.io/normal/front/e/8/e87459aa-af8f-4bd2-a310-151353083a2e.jpg?1665157404",
+        "https://cards.scryfall.io/normal/front/0/a/0ac3fb08-741a-49e5-9fae-b26819677d24.jpg?1631235340", 
+        "https://cards.scryfall.io/normal/front/d/4/d495e084-92ec-4675-b6aa-8ade2775b796.jpg?1674185826",
+        "https://cards.scryfall.io/normal/front/d/8/d890ae71-da2b-44fa-8cfa-9c3016c9f696.jpg?1626096189", 
+        "https://cards.scryfall.io/normal/front/b/4/b4036bb7-835d-4690-aca1-1ab566776e9a.jpg?1562415955",
+        "https://cards.scryfall.io/normal/front/d/0/d09b2e71-a576-46ed-9275-26339416b8c5.jpg?1637629330", 
+        "https://cards.scryfall.io/normal/front/d/8/d8089e7f-7619-43fe-8e0b-31ce5d988a1b.jpg?1626100713",
+        "https://cards.scryfall.io/normal/front/b/5/b5de7331-d0c6-46a5-b08d-0e032db63223.jpg?1674142192", 
+        "https://cards.scryfall.io/normal/front/0/e/0ec9ef7c-88de-4346-a8f9-44beda59fa68.jpg?1673305113",
+        "https://cards.scryfall.io/normal/front/2/5/25e34147-588b-4fe5-88dd-2dfda567681d.jpg?1673148563", 
+        "https://cards.scryfall.io/normal/front/e/1/e1481378-25c3-4f8d-93bc-0a433f467dca.jpg?1673148751",
+        "https://cards.scryfall.io/normal/front/2/b/2b27e6b2-13ad-42b2-a121-70935913723d.jpg?1581480865", 
+        "https://cards.scryfall.io/normal/front/b/d/bd9af767-42da-46c7-a2b8-3957b2e3063f.jpg?1547516310",
+        "https://cards.scryfall.io/normal/front/1/6/168cbca9-0124-478b-8dd7-0bd9dc711c6d.jpg?1562551203", 
+        "https://cards.scryfall.io/normal/front/9/3/93c2c11d-dfc3-4ba9-8c0f-a98114090396.jpg?1572490217",
+        "https://cards.scryfall.io/normal/front/d/0/d0d33d52-3d28-4635-b985-51e126289259.jpg?1599707796", 
+        "https://cards.scryfall.io/normal/front/2/9/29538ff4-e28f-44d9-af23-6796edd56268.jpg?1562272935",
+        "https://cards.scryfall.io/normal/front/3/7/374a1b7c-ce11-4734-aff2-b0bd00857fad.jpg?1562816653", 
+        "https://cards.scryfall.io/normal/front/d/0/d0787e1f-0b75-44ab-a8fd-90358906a787.jpg?1562831894",
+        "https://cards.scryfall.io/normal/front/0/9/096c2b28-3e29-4c27-998d-51bff0ba96c5.jpg?1631585369", 
+        "https://cards.scryfall.io/normal/front/b/b/bb65df55-d6a6-4a57-a903-e5eb17637982.jpg?1591230310",
+        "https://cards.scryfall.io/normal/front/0/4/0430db1a-5cad-4444-ba93-57fb32e65606.jpg?1592516651", 
+        "https://cards.scryfall.io/normal/front/d/7/d743336e-d5c7-4053-a23d-92ec7581f74e.jpg?1631839207",
+        "https://cards.scryfall.io/normal/front/2/5/2501a911-d072-436d-ae3b-a5164e3b30aa.jpg?1675456154", 
+        "https://cards.scryfall.io/normal/front/8/2/8296a455-21d5-498e-9029-2bdf0da855a8.jpg?1675956918",
+        "https://cards.scryfall.io/normal/front/2/b/2bf63241-9091-42f5-b997-9ce5aa3484f1.jpg?1608908677", 
+        "https://cards.scryfall.io/normal/front/c/7/c7be9d06-3651-47f4-9e44-00ecd4a15e3c.jpg?1616446996",
+        "https://cards.scryfall.io/normal/front/9/d/9da6974f-6753-48ac-98cd-86412cc93726.jpg?1555040334", 
+        "https://cards.scryfall.io/normal/front/b/b/bb2cbf12-7f35-4162-b1a0-89a1632728c7.jpg?1591319557",
+        "https://cards.scryfall.io/normal/front/7/c/7c0bfb47-c753-42fa-969b-7b10b87b0462.jpg?1636202774", 
+        "https://cards.scryfall.io/normal/front/c/d/cd81d0de-01a3-4f28-8a2b-c2e6f36a03c4.jpg?1562943507",
+        "https://cards.scryfall.io/normal/front/0/4/0452c73b-4522-4808-8f97-0e84e2944ee9.jpg?1625191203", 
+        "https://cards.scryfall.io/normal/front/5/6/563bf277-5bb1-4df7-bebb-d6d7dbec1cf6.jpg?1682208397",
+        "https://cards.scryfall.io/normal/front/3/6/362850cd-d33c-4f61-9b3a-5de748adee7c.jpg?1608910178", 
+        "https://cards.scryfall.io/normal/front/2/2/22be6c55-f95e-498e-b6d2-65b7ed57d2d3.jpg?1673485063",
+        "https://cards.scryfall.io/normal/front/9/7/97502411-5c93-434c-b77b-ceb2c32feae7.jpg?1631045832", 
+        "https://cards.scryfall.io/normal/front/b/d/bdf894d4-1a06-4952-a481-22786ab87a73.jpg?1581480764",
+        "https://cards.scryfall.io/normal/front/7/8/78127c0c-672f-4e4b-9c23-6a5f237228fd.jpg?1664411605", 
+        "https://cards.scryfall.io/normal/front/e/8/e83e6d7a-3af0-4955-8004-2310f051e306.jpg?1673485110",
+        "https://cards.scryfall.io/normal/front/9/a/9ab09047-f76b-4d3a-843b-73f798e8f03e.jpg?1645328779", 
+        "https://cards.scryfall.io/normal/front/a/5/a57b0e38-8931-4715-ac13-b3af30b27895.jpg?1673148936",
+        "https://cards.scryfall.io/normal/front/9/f/9f6e43a7-84b9-4e89-bfe1-442d08df34d8.jpg?1631585505", 
+        "https://cards.scryfall.io/normal/front/0/1/01482b0c-d05b-4356-9144-e044159f4dcb.jpg?1562841195",
+        "https://cards.scryfall.io/normal/front/3/e/3eaf48c9-09bc-4d81-a3a5-432219a71754.jpg?1631057118", 
+        "https://cards.scryfall.io/normal/front/4/c/4c91dbf4-94fa-45d0-b8ed-a778b11d789b.jpg?1674134922",
+        "https://cards.scryfall.io/normal/front/f/1/f185a734-a32a-4244-88e8-dabafbfd064f.jpg?1562837629", 
+        "https://cards.scryfall.io/normal/front/9/f/9fb4e77f-e189-4ad3-9fca-8da04289e396.jpg?1572490617",
+        "https://cards.scryfall.io/normal/front/4/8/480eb74f-9e62-41f7-b48a-b4249aab5752.jpg?1598304081", 
+        "https://cards.scryfall.io/normal/front/0/0/0095245c-a30e-4e2a-88c9-632c678e9f03.jpg?1591227650",
+        "https://cards.scryfall.io/normal/front/d/d/dddeb5cc-b535-4484-8a0e-ce32c4c09000.jpg?1651655501", 
+        "https://cards.scryfall.io/normal/front/1/7/17d6703c-ad79-457b-a1b5-c2284e363085.jpg?1592673422",
+        "https://cards.scryfall.io/normal/front/a/5/a5dabc03-a706-4e84-83e4-dbd405dfb025.jpg?1674142158", 
+        "https://cards.scryfall.io/normal/front/2/2/22ecead7-58b3-4e34-8f7d-b095abee7f24.jpg?1561758901",
+        "https://cards.scryfall.io/normal/front/f/4/f43748ea-1d65-4ee8-9c66-221412a284c0.jpg?1673148699", 
+        "https://cards.scryfall.io/normal/front/a/e/ae48c31d-6fd9-457f-adb8-37f367724ba1.jpg?1562866402",
+        "https://cards.scryfall.io/normal/front/a/e/ae48c31d-6fd9-457f-adb8-37f367724ba1.jpg?1562866402", 
+        "https://cards.scryfall.io/normal/front/1/2/12878fbd-dbe5-44bc-9f34-38fd374ec10a.jpg?1604200584",
+        "https://cards.scryfall.io/normal/front/3/7/377a5f75-222b-43e1-8998-18c6cfa44b24.jpg?1637631446", 
+        "https://cards.scryfall.io/normal/front/2/8/28da9211-13f4-4500-98f9-58c260c01e18.jpg?1641602842",
+    ]
+
+    function getRandomItem(arr) {
+
+        // get random index value
+        const randomIndex = Math.floor(Math.random() * arr.length);
+    
+        // get random item
+        const item = arr[randomIndex];
+    
+        return item;
+    }
+    let newImage = ""
+    newImage = getRandomItem(cards)
+
+    return (
+        <View style={globalStyles.container}>
+
+            <Image style={{width: 400, height: 600}} source={{uri: newImage}}/>
+
+        </View>
+    )
+}
